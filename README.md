@@ -1,8 +1,6 @@
 # Mitake
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/mitake`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Taiwan SMS Provider Mitake API
 
 ## Installation
 
@@ -22,7 +20,18 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+  mitake = Mitake::API.new(username: YOUR_USERNAME, password: YOUR_PASSWORD)
+
+  #get Balance
+  mitake.get_balance
+
+  #send SMS
+  mitake.send_sms(numbers: DEST_MOBILE, message: YOUR_MESSAGE)
+  mitake.send_sms(numbers: [DEST_MOBILE1, DEST_MOBILE2, DEST_MOBILE3], message: YOUR_MESSAGE)
+
+  #get SMS status
+  mitake.get_message(msgid: MESSAGE_ID)
+  mitake.get_message(msgid: [MESSAGE_ID1, MESSAGE_ID2, MESSAGE_ID3])
 
 ## Development
 
@@ -32,7 +41,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/mitake. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/j094097/mitake. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
