@@ -20,18 +20,23 @@ Or install it yourself as:
 
 ## Usage
 
+Initialize mitake api:
+    
     mitake = Mitake::API.new(username: YOUR_USERNAME, password: YOUR_PASSWORD)
 
-    #get Balance
+Get Account Balance:
+    
     mitake.get_balance
 
-    #send SMS
+Send Message:
+
     mitake.send_sms(numbers: DEST_MOBILE, message: YOUR_MESSAGE)
     mitake.send_sms(numbers: [DEST_MOBILE1, DEST_MOBILE2, DEST_MOBILE3], message: YOUR_MESSAGE)
 
-    #get SMS status
+Get Message Status:
+
     mitake.get_message(msgid: MESSAGE_ID)
-    mitake.get_message(msgid: [MESSAGE_ID1, MESSAGE_ID2, MESSAGE_ID3])
+    mitake.get_message(msgid: MESSAGE_ID1, MESSAGE_ID2, MESSAGE_ID3)
 
 ## Development
 
