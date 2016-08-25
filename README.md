@@ -47,8 +47,6 @@ Get Message Status:
 mitake.get_message(msgid: MESSAGE_ID)
 mitake.get_message(msgid: MESSAGE_ID1, MESSAGE_ID2, MESSAGE_ID3)
 #{"msgid"=>"0939137671", "statuscode"=>"4", "statustime"=>"20160808153248"}
-#{"msgid"=>"0939138466", "statuscode"=>"4", "statustime"=>"20160808153403"}
-#{"msgid"=>"0939138467", "statuscode"=>"4", "statustime"=>"20160808153416"}
 ```
 
 ## Development
