@@ -30,13 +30,26 @@ Get Account Balance:
 
 Send Message:
 
-    mitake.send_sms(numbers: DEST_MOBILE, message: YOUR_MESSAGE)
-    mitake.send_sms(numbers: [DEST_MOBILE1, DEST_MOBILE2, DEST_MOBILE3], message: YOUR_MESSAGE)
+```ruby
+mitake.send_sms(numbers: DEST_MOBILE, message: YOUR_MESSAGE)
+mitake.send_sms(numbers: [DEST_MOBILE1, DEST_MOBILE2, DEST_MOBILE3], message: YOUR_MESSAGE) 
+#[{"msgid"=>"0939137671", "statuscode"=>"1"}, {"msgid"=>"0939138467", "statuscode"=>"1"}, {"AccountPoint"=>"96"}]
+# or
+#{"statuscode"=>"e", "Error"=>"帳號、密碼錯誤"}
+
+mitake.send_long_sms(number: DEST_MOBILE, message: YOUR_MESSAGE)
+#for message more then 70 characters
+```
 
 Get Message Status:
 
-    mitake.get_message(msgid: MESSAGE_ID)
-    mitake.get_message(msgid: MESSAGE_ID1, MESSAGE_ID2, MESSAGE_ID3)
+```ruby
+mitake.get_message(msgid: MESSAGE_ID)
+mitake.get_message(msgid: MESSAGE_ID1, MESSAGE_ID2, MESSAGE_ID3)
+#{"msgid"=>"0939137671", "statuscode"=>"4", "statustime"=>"20160808153248"}
+#{"msgid"=>"0939138466", "statuscode"=>"4", "statustime"=>"20160808153403"}
+#{"msgid"=>"0939138467", "statuscode"=>"4", "statustime"=>"20160808153416"}
+```
 
 ## Development
 
