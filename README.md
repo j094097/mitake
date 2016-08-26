@@ -49,6 +49,66 @@ mitake.get_message(msgid: MESSAGE_ID1, MESSAGE_ID2, MESSAGE_ID3)
 #{"msgid"=>"0939137671", "statuscode"=>"4", "statustime"=>"20160808153248"}
 ```
 
+StatusFlag shown in the table below:
+
+| StatusFlag | Description                  |
+-------------|------------------------------|
+0            | Reservation                  |
+1            | Has been served              |
+2            | Has been served              |
+3            | Has been served              |
+4            | Has been served              |
+5            | Content with errors          |
+6            | Phone number with errors     |
+7            | Has been disabled            |
+8            | Timeout                      |
+9            | Reservation has been canceled|
+
+statuscode shown in the table below:
+
+| statuscode | Description                                                         |
+-------------|---------------------------------------------------------------------|
+*            | System error, please contact Mitake.                                |
+a            | SMS sending is temporarily out of service. Please try again later.  |
+b            | SMS sending is temporarily out of service. Please try again later.  |
+c            | Please enter your account.                                          |
+d            | Please enter your password.                                         |
+e            | Account and password error.                                         |
+f            | Account has expired.                                                |
+h            | Account has disabled.                                               |
+k            | Invalid connection address.                                         |
+m            | You must change your password.                                      |
+n            | Password has expired.                                               |
+p            | Permission denied.                                                  |
+r            | System out of service, please try again later.                      |
+s            | Accounting treatment failure.                                       |
+t            | SMS has expired.                                                    |
+u            | SMS content can not be blank.                                       |
+v            | Invalid phone number.                                               |
+0            | Reservation                                                         |
+1            | Has been served                                                     |
+2            | Has been served                                                     |
+3            | Has been served                                                     |
+4            | Has been served                                                     |
+5            | Content with errors                                                 |
+6            | Phone number with errors                                            |
+7            | Has been disabled                                                   |
+8            | Timeout                                                             |
+9            | Reservation has been canceled                                       |
+
+statusstr shown in the table below:
+
+| statusstr | StatusFlag | Description                                                            |
+------------|------------|------------------------------------------------------------------------|
+DELIVRD     | 4          | Has been served                                                        |
+EXPIRED     | 8          | Timeout                                                                |
+DELETED     | 9          | Reservation has been canceled                                          |
+UNDELIV     | 6,7        | Undeliverable (Phone number with errors / SMS has been disabled)       |
+ACCEPTD     | 0, 1, 2, 3 | SMS Processing (0 = appointment, 1,2,3 = the carriers has been served) |
+UNKNOWN     |            | Invalid SMS status, system error                                       |
+REJECTD     |            |                                                                        |
+SYNTAXE     | 5          | SMS content error                                                      |
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
