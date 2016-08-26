@@ -32,14 +32,40 @@ Send Message:
 
 ```ruby
 mitake.send_sms(numbers: DEST_MOBILE, message: YOUR_MESSAGE)
-mitake.send_sms(numbers: [DEST_MOBILE1, DEST_MOBILE2, DEST_MOBILE3], message: YOUR_MESSAGE) 
+mitake.send_sms(numbers: [DEST_MOBILE1, DEST_MOBILE2, DEST_MOBILE3], message: YOUR_MESSAGE)
+
 #[{"msgid"=>"0939137671", "statuscode"=>"1"}, {"msgid"=>"0939138467", "statuscode"=>"1"}, {"AccountPoint"=>"96"}]
 # or
 #{"statuscode"=>"e", "Error"=>"帳號、密碼錯誤"}
 
 mitake.send_long_sms(number: DEST_MOBILE, message: YOUR_MESSAGE)
+
 #for message more then 70 characters
 ```
+
+Send Message with callback:
+
+```ruby
+mitake.send_sms(numbers: DEST_MOBILE, message: YOUR_MESSAGE, response_callback_url: YOUR_CALLBACK_URL)
+mitake.send_sms(numbers: [DEST_MOBILE1, DEST_MOBILE2, DEST_MOBILE3], message: YOUR_MESSAGE, response_callback_url: YOUR_CALLBACK_URL) 
+
+mitake.send_long_sms(number: DEST_MOBILE, message: YOUR_MESSAGE, response_callback_url: YOUR_CALLBACK_URL)
+
+#will get YOUR_CALLBACK_URL?msgid=xxx&dstaddr=xxx&dlvtime=xxx&donetime=xxx&statusstr=xxx&statuscode=xxx&StatusFlag=xxx
+#then your response must be magicid=sms_gateway_rpack[LF]msgid=MsgId[LF] 
+#[LF] means \n
+```
+CALLBACK params shown in the table below:
+
+| param    | Description                                                                      |
+-----------|----------------------------------------------------------------------------------|
+msgid      | SMS id given by mitake.                                                          |
+dstaddr    | Receiver phone number.                                                           |
+dlvtime    | Sms reservation time. Format is YYYYMMDDHHNNSS                                   |
+donetime   | SMS-to-date time. Format is YYYYMMDDHHNNSS                                       |
+statuscode | 0 or 1 means sent successfully. If sending fails, there will be no state return. |
+statusstr  | SMS status. Please refer to statusstr table below.                               |
+StatusFlag | SMS status. Please refer to StatusFlag table below.                              |
 
 Get Message Status:
 
